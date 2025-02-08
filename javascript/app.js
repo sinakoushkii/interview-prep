@@ -72,25 +72,38 @@ function addFourNumbers(num1, num2, num3, num4) {
   return num1 + num2 + num3 + num4;
 }
 
-const finallResult=addFourNumbers(...fourNumbers);
-
+const finallResult = addFourNumbers(...fourNumbers);
 
 const promise = new Promise((resolve, reject) => {
-  const status=true;
-  if(status){
+  const status = true;
+  if (status) {
     setTimeout(() => {
-        resolve({
-            status:200,
-            message:"Data has been fetched",
-            data:[1,2,3,4,5]
-        });
-      }, 2000);
-    }else{
-        reject("Error, something went wrong");
-    }
-
-})
+      resolve({
+        status: 200,
+        message: "Data has been fetched",
+        data: [1, 2, 3, 4, 5],
+      });
+    }, 2000);
+  } else {
+    reject("Error, something went wrong");
+  }
+});
 
 promise
-    .then(respose=>console.log(respose))
-    .catch(error=>console.log(error))
+  .then((respose) => console.log(respose))
+  .catch((error) => console.log(error));
+
+// generator function
+// used to pause and resume the function execution
+function* generatorFunction() {
+  for (let i = 0; i <= 2; i++) {
+    yield i;
+  }
+  return "Function Done !";
+}
+
+let generator = generatorFunction();
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
