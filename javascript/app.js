@@ -73,3 +73,24 @@ function addFourNumbers(num1, num2, num3, num4) {
 }
 
 const finallResult=addFourNumbers(...fourNumbers);
+
+
+const promise = new Promise((resolve, reject) => {
+  const status=true;
+  if(status){
+    setTimeout(() => {
+        resolve({
+            status:200,
+            message:"Data has been fetched",
+            data:[1,2,3,4,5]
+        });
+      }, 2000);
+    }else{
+        reject("Error, something went wrong");
+    }
+
+})
+
+promise
+    .then(respose=>console.log(respose))
+    .catch(error=>console.log(error))
