@@ -74,6 +74,7 @@ function addFourNumbers(num1, num2, num3, num4) {
 
 const finallResult = addFourNumbers(...fourNumbers);
 
+// promise
 const promise = new Promise((resolve, reject) => {
   const status = true;
   if (status) {
@@ -92,6 +93,18 @@ const promise = new Promise((resolve, reject) => {
 promise
   .then((respose) => console.log(respose))
   .catch((error) => console.log(error));
+
+// async await
+async function fetchData() {
+    try {
+        const response = await promise;
+        console.log({type:'async await', response});
+    } catch (error) {
+        console.log(error);
+    }
+}
+fetchData()
+
 
 // generator function
 // used to pause and resume the function execution
