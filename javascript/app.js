@@ -127,10 +127,60 @@ let arrayIntegersOriginal2 = [1, 2, 3, 4, 5, 6, 7, 8];
 let modifiedArray = arrayIntegersOriginal1.slice(3, 5);
 console.log(modifiedArray);
 
-removedElements = arrayIntegersOriginal2.splice(1,3,20,30,40);
-console.log(removedElements)
-console.log(arrayIntegersOriginal2)
+removedElements = arrayIntegersOriginal2.splice(1, 3, 20, 30, 40);
+console.log(removedElements);
+console.log(arrayIntegersOriginal2);
 
-let addedElements=arrayIntegersOriginal2.splice(0,0,100,200,300)
-console.log(arrayIntegersOriginal2)
-console.log(addedElements)
+let addedElements = arrayIntegersOriginal2.splice(0, 0, 100, 200, 300);
+console.log(arrayIntegersOriginal2);
+console.log(addedElements);
+
+// first order function
+// A first-order function is a function that doesn’t accept another function as an argument and doesn’t return a function as its return value.
+const firstOrderFunction = () => console.log("This is a first order function");
+
+// higher order function
+// A higher-order function is a function that accepts another function as an argument or returns a function as a return value or both.
+const higherOrderFunction = (callback) => callback();
+
+// unary function
+// A unary function is a function that accepts exactly one argument. It stands for a single argument accepted by a function
+const unaryFunction = (a) => console.log(a);
+
+// Pure Function
+// Always returns the same output for the same input, and has no side effects (doesn’t modify external variables, DOM, API calls, etc.).
+function add(a, b) {
+  return a + b;
+}
+
+// Impure Function
+
+let total = 10;
+
+function addToTotal(value) {
+  total += value; // Modifies external variable
+  return total;
+}
+
+console.log(addToTotal(5)); // 15
+console.log(addToTotal(5)); // 20 (different output for same input)
+
+// memoization
+const memoizeAddition = () => {
+  let cached = {};
+  return (value) => {
+    if (value in cached) {
+      console.log("Fetching from cache");
+      return cached[value];
+    } else {
+      console.log("Calculating result");
+      let result = value + 10;
+      cached[value] = result;
+      return result;
+    }
+  };
+};
+console.log('------------------')
+const addition = memoizeAddition();
+console.log(addition(10)); //output 20 calculated
+console.log(addition(10)); //output 20 cached
