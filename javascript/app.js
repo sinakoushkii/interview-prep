@@ -96,15 +96,14 @@ promise
 
 // async await
 async function fetchData() {
-    try {
-        const response = await promise;
-        console.log({type:'async await', response});
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const response = await promise;
+    console.log({ type: "async await", response });
+  } catch (error) {
+    console.log(error);
+  }
 }
-fetchData()
-
+fetchData();
 
 // generator function
 // used to pause and resume the function execution
@@ -120,3 +119,18 @@ console.log(generator.next());
 console.log(generator.next());
 console.log(generator.next());
 console.log(generator.next());
+
+// array methods
+let arrayIntegersOriginal1 = [10, 20, 30, 40, 50];
+let arrayIntegersOriginal2 = [1, 2, 3, 4, 5, 6, 7, 8];
+
+let modifiedArray = arrayIntegersOriginal1.slice(3, 5);
+console.log(modifiedArray);
+
+removedElements = arrayIntegersOriginal2.splice(1,3,20,30,40);
+console.log(removedElements)
+console.log(arrayIntegersOriginal2)
+
+let addedElements=arrayIntegersOriginal2.splice(0,0,100,200,300)
+console.log(arrayIntegersOriginal2)
+console.log(addedElements)
